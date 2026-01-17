@@ -12,6 +12,9 @@ function draw() {
   for (let i = 0; i < particles.length; i++) {
     particles[i].show();
     particles[i].update();
+  if (particles[i].finished());
+    //removes particle
+    particles.splice(i, 1)
   } 
 }
 
@@ -25,15 +28,16 @@ class Particle {
   }
   
   finished() {
-    pass;
+    return this.alpha < 0;
   }
   update() {
     this.x += this.vx;
     this.y += this.vy;
+    this.alpha -= 5;
   }
   show() {
-    noStroke();
-    fill(255, 10);
+    stroke(255);
+    fill(255, this.alpha);
     ellipse(this.x, this.y, 16);
   }
   
