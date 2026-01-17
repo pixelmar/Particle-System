@@ -8,10 +8,10 @@ function setup() {
 function draw() {
   background(0);
   let p = new Particle();
-  particles.push(p)
+  particles.push(p);
   for (let i = 0; i < particles.length; i++) {
-    particles[i].show()
-    particles[i].update()
+    particles[i].show();
+    particles[i].update();
   } 
 }
 
@@ -32,7 +32,7 @@ class Particle {
     this.y += this.vy;
   }
   show() {
-    stroke(255);
+    noStroke();
     fill(255, 10);
     ellipse(this.x, this.y, 16);
   }
